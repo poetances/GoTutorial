@@ -1,4 +1,4 @@
-package variable
+package main
 
 import "fmt"
 
@@ -9,6 +9,9 @@ bool	布尔型，true或false
 complex	复数，complex64和complex128
 
 byte	等价 uint8 可以表达ANSCII字符. 0-255
+	因为byte可以表达AnSIIC字符，所以可以用来强调一个值是字符类型
+	var c byte = 'c' 完全是可以的
+
 rune	等价 int32 可以表达Unicode字符. 0-0x10FFFF
 string	字符串即字节序列，可以转换为[]byte类型即字节切片
 
@@ -58,8 +61,50 @@ func Test2() {
 
 	// iota 常量重置，一般用于枚举
 	const iota = 0
-	const
-	
-	fmt.Println(ii, f, c, d, e, n, numExpression, age, name, age2, name2)
+	const (
+		A = iota
+		B 
+	)
 
+	// 与表达式结合
+	const ( 
+		KB = 1 << (10 * iota) 	// 1 << (10 * 1)
+		MB					 	// 1 << (10 * 2)
+		GB						// 1 << (10 * 3)
+	)
+	
+	// 掩码
+	const (
+		Read = 1 << iota
+		Write
+	)
+	fmt.Println(ii, f, c, d, e, n, numExpression, age, name, age2, name2, A, B, KB, MB, GB, Read, Write)
+}
+
+func Test3() {
+	// 变量
+	var intNum int 
+	var str string
+	var char byte
+
+	intNum = 12
+	str = "name"
+	char = 'a'
+
+	// 批量声明
+	var name string
+	var age int
+	name, age = "David", 12
+
+	// 也可以。去掉var和后置类型。短变量声明
+	name1, age1 := "David", 12
+
+	// 交换变量，不需要指针，非常直观
+	num1, num2 := 25, 36
+	num1, num2 = num2, num1
+	
+	// 忽略类型。如果有些变量不使用，可以忽略类型。
+	a, b, _ := 1, 2, 3
+
+	fmt.Println(intNum, str, char, name, age, name1, age1, num1, num2, a, b)
 }
