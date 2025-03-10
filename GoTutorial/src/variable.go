@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /*
 int	整型，根据平台可能是32或64位
@@ -25,9 +27,15 @@ string	字符串即字节序列，可以转换为[]byte类型即字节切片
 常量是一个简单值的标识符，在程序运行时，不会被修改的量。
 常量的声明和变量声明非常类似，只是把var换成了const，常量在定义的时候必须赋值。
 常量可以是字符、字符串、布尔值或数值。
+
+var identifier type
+var identifier1, identifier2 type
+
+
+Author: zcj
 */
 
-func Test() {
+func VarTutorial() {
 	var i int
 	var f float64 = 12.0
 	var b bool = true
@@ -38,7 +46,7 @@ func Test() {
 	fmt.Println(i, f, b, c, bb, arr)
 }
 
-func Test2() {
+func VarTutorial2() {
 	ii := 13
 	var f float64 = 12
 
@@ -48,7 +56,7 @@ func Test2() {
 	const n = "name"
 	const numExpression = 1 + 2
 	
-	// 批量声明
+	// 批量声明 
 	var (
 		age = 12
 		name = "name"
@@ -66,7 +74,7 @@ func Test2() {
 		B 
 	)
 
-	// 与表达式结合
+	// 与表达式结合。这种写法，var声明不支持，var声明必须有初始值
 	const ( 
 		KB = 1 << (10 * iota) 	// 1 << (10 * 1)
 		MB					 	// 1 << (10 * 2)
@@ -81,7 +89,7 @@ func Test2() {
 	fmt.Println(ii, f, c, d, e, n, numExpression, age, name, age2, name2, A, B, KB, MB, GB, Read, Write)
 }
 
-func Test3() {
+func VarTutorial3() {
 	// 变量
 	var intNum int 
 	var str string
@@ -99,7 +107,8 @@ func Test3() {
 	// 也可以。去掉var和后置类型。短变量声明
 	name1, age1 := "David", 12
 
-	// 交换变量，不需要指针，非常直观
+	// 交换变量，不需要指针，非常直观.
+	// 短变量声明，只能用于函数内部
 	num1, num2 := 25, 36
 	num1, num2 = num2, num1
 	

@@ -8,6 +8,8 @@ for init statement; expression; post statement {
 	execute statement
 }
 
+2. 循环语句
+Go 只有 for 循环，没有 while 或 do-while 语法。
 简化版的for循环相当于while循环
 for expression {
 	execute statement
@@ -19,10 +21,11 @@ for {
 }
 
 使用range遍历数组，切片，通道或集合时，返回索引和值。
-
 同时也可以使用，break、continue、goto、return等控制语句。
+
+
 */ 
-func testGo() {
+func ForTutorial() {
 
 	for i := 0; i < 10; i++ {
 		// println(i) 一般不建议使用println

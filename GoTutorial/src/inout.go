@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
-func Test4()	{
+func InoutTutorial()	{
 	fmt.Printf("%%%s\n", "hello world")
  
 	fmt.Printf("%s\n", "hello world") 
@@ -37,6 +40,16 @@ func Test4()	{
 	fmt.Printf("%U\n", '码')							   
 	fmt.Printf("%p\n", &person{})						
 
+	// Sprintf有返回值
+	result := fmt.Sprintf("%d", 123)
+	fmt.Println(result)
+
+	// Fprintf
+	// Fprintf 用于格式化并输出到 io.Writer 接口类型的 w 中，返回写入的字节数和遇到的任何写入错误。
+	// func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error)
+	fmt.Fprint(os.Stdout, "hello world")
+
+	
 	// println
 	// 特点
 	// •	内置函数：println 是 Go 语言的一个低级别内置函数，用于直接打印到标准输出。
