@@ -13,6 +13,4 @@ func ArrayTutorial() {
 
 	var arr2 = []int{1, 2, 3, 4, 5}
 	fmt.Println("arr2:", arr2)
-
-
 }

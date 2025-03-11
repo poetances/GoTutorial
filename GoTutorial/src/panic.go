@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/golangci/golangci-lint/pkg/result"
 )
 
 /*

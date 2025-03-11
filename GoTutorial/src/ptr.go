@@ -14,6 +14,7 @@ nil在概念上和其它语言的null、None、nil、NULL一样，都指代零�
 func PtrTutorial() {
 
 	var a int = 10
+    // 指针类型，默认是nil，一般用new分配地址
     var p *int
 
     p = &a  // 取变量 a 的地址，并赋值给 p

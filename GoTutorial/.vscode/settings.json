@@ -2,5 +2,9 @@
     "go.useLanguageServer": true,
     "go.formatTool": "goimports",
     "go.lintTool": "golangci-lint",
-    "go.testFlags": ["-v"]
+    "go.testFlags": ["-v"],
+    // code runner
+    "code-runner.executorMap": {
+        "go": "go run",
+    },
 }
