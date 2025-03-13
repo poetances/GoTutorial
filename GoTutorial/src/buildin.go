@@ -13,7 +13,7 @@ func imag(c ComplexType) FloatType
 func len(v Type) int
 func make(Type, size IntegerType) Type
 func new(Type) *Type
-func panic(v interface{})
+func panic(v interface{}) 
 func real(c ComplexType) FloatType
 func recover() interface{}
 
