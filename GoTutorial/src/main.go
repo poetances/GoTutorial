@@ -1,6 +1,5 @@
 package main
 
 func main() {
-
-	InterfaceTutorial()
+	ChannelTutorial2()
 }

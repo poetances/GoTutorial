@@ -49,8 +49,7 @@ func (参数) 返回值 { }
 */
 
 func FuncTutorial() {
-	var calc CalcFunc
-	calc = Maximum
+	var calc CalcFunc = Maximum
 	fmt.Println(calc(1, 2))
 
 	fmt.Printf("%T\n", Maximum)
