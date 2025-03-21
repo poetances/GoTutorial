@@ -29,9 +29,7 @@ func ChannelTutorial() {
 	a := <-ch
 	fmt.Println(a) // 30. 管道里面的数据遵循FIFO
 
-
 	fmt.Printf("值：%v 容量:%v 长度：%v\n", ch, cap(ch), len(ch))
-
 
 	// 管道是引用类型
 	ch1 := make(chan int, 4)
@@ -42,9 +40,8 @@ func ChannelTutorial() {
 	ch2 := ch1
 	ch2 <- 4
 
-
 	// 管道阻塞
-	ch3 := make(chan int ,1)
+	ch3 := make(chan int, 1)
 	ch3 <- 1
 	// ch3 <-2 // error: all goroutines are asleep - deadlock! 如果管道容量是1，往里面放多余1的数，将会阻塞
 
@@ -59,7 +56,7 @@ func ChannelTutorial1() {
 	for i := 0; i < 10; i++ {
 		ch <- i
 	}
-	close(ch)// 关闭管道。不然遍历会报错fatal error: all goroutines are asleep - deadlock!
+	close(ch) // 关闭管道。不然遍历会报错fatal error: all goroutines are asleep - deadlock!
 
 	// 遍历。在没有携程的情况下，如果管道中没有数据，还继续读取就会报错
 	for v := range ch {
@@ -72,8 +69,9 @@ func ChannelTutorial1() {
 	}
 }
 
-/// goroutine + chan
+// / goroutine + chan
 var ws sync.WaitGroup
+
 func read(ch chan int) {
 	for v := range ch {
 		fmt.Println("读取数据：", v)
@@ -98,4 +96,19 @@ func ChannelTutorial2() {
 	go read(ch)
 	go write(ch)
 	ws.Wait()
+}
+
+// 单向管道
+func ChannelTutorial3() {
+
+	// 单向管道的定义：chan<- int只读。 <-chan int只写。
+	ch1 := make(chan<- int, 2)
+	ch1 <- 1
+	ch1 <- 2
+
+	// <-ch1 Receiving from a send-only channel is not allowed and has been removed.
+
+	ch2 := make(<-chan int, 2)
+	// ch2 <- 1 Receiving from a send-only channel is not allowed and has been removed.
+	<-ch2
 }
