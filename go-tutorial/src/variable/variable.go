@@ -1,4 +1,4 @@
-package main
+package variable
 
 import (
 	"fmt"
@@ -42,7 +42,7 @@ func VarTutorial() {
 	var c complex64 = 5 + 5i
 	var bb byte = 255
 
-	var arr [3]int = [3] int {1, 2}
+	var arr [3]int = [3]int{1, 2}
 	fmt.Println(i, f, b, c, bb, arr)
 }
 
@@ -50,20 +50,20 @@ func VarTutorial2() {
 	ii := 13
 	var f float64 = 12
 
-	var c  = 12
+	var c = 12
 	const d = 12
 	const e = 12.0
 	const n = "name"
 	const numExpression = 1 + 2
-	
-	// 批量声明 
+
+	// 批量声明
 	var (
-		age = 12
+		age  = 12
 		name = "name"
 	)
 
 	const (
-		age2 = 12
+		age2  = 12
 		name2 = "name"
 	)
 
@@ -71,16 +71,16 @@ func VarTutorial2() {
 	const iota = 0
 	const (
 		A = iota
-		B 
+		B
 	)
 
 	// 与表达式结合。这种写法，var声明不支持，var声明必须有初始值
-	const ( 
-		KB = 1 << (10 * iota) 	// 1 << (10 * 1)
-		MB					 	// 1 << (10 * 2)
-		GB						// 1 << (10 * 3)
+	const (
+		KB = 1 << (10 * iota) // 1 << (10 * 1)
+		MB                    // 1 << (10 * 2)
+		GB                    // 1 << (10 * 3)
 	)
-	
+
 	// 掩码
 	const (
 		Read = 1 << iota
@@ -91,7 +91,7 @@ func VarTutorial2() {
 
 func VarTutorial3() {
 	// 变量
-	var intNum int 
+	var intNum int
 	var str string
 	var char byte
 
@@ -111,9 +111,23 @@ func VarTutorial3() {
 	// 短变量声明，只能用于函数内部
 	num1, num2 := 25, 36
 	num1, num2 = num2, num1
-	
+
 	// 忽略类型。如果有些变量不使用，可以忽略类型。
 	a, b, _ := 1, 2, 3
 
 	fmt.Println(intNum, str, char, name, age, name1, age1, num1, num2, a, b)
+}
+
+func VarTutorial4() {
+	var a, b string
+	a = "Hello"
+	b = "Wrold"
+	fmt.Println(a, b)
+	fmt.Printf("%v", a)
+
+	var (
+		c = "Hello"
+		d = "World"
+	)
+	fmt.Println(c, d)
 }

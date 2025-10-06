@@ -14,7 +14,7 @@ func new(Type) *Type
 func complex(real, imag FloatType) ComplexType
 func imag(c ComplexType) FloatType
 func real(c ComplexType) FloatType
-func panic(v interface{}) 
+func panic(v interface{})
 func recover() interface{}
 
 builtin.go 只是一个声明文件，不包含实现。
@@ -55,4 +55,5 @@ func BuildInTutorial() {
 	var ptr2 *int
 	*ptr2 = 10
 	println(*ptr2)
+
 }
